@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Turn from './components/Turn';
+import { darktheme, lighttheme } from './tools/Theme';
 import './App.css';
+import { ThemeProvider } from "@emotion/react";
+import { useState } from "react";
 
 function App() {
+
+  const [team, setteam] = useState('light')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <ThemeProvider theme={team === 'light' ? lighttheme : darktheme}>
+        <Router>
+          <Routes>
+            <Route path='/' element={ <Turn /> } />
+          </Routes>
+        </Router>
+      </ThemeProvider>
     </div>
   );
 }
