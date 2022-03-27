@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDB1jKj_AwM_ONApF-iuqXdy4SHHUYqN_Y",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "game-tracker-422ad.firebaseapp.com",
   projectId: "game-tracker-422ad",
   storageBucket: "game-tracker-422ad.appspot.com",
